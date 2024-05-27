@@ -1,0 +1,52 @@
+{% extends  "base.html" %}
+
+{% load static %}
+
+{% block head  %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/catalog.css' %}">
+{% endblock %}
+
+{% block content  %}
+
+
+<br><br>
+<div class="container">
+    <div class="brands-container">
+        <script>
+            let ratingDiv;
+        </script>
+
+        {% for course in courses %}
+        <a href="/course/{{course.id}}" class="brand-container">
+
+            <img class="image brand-avatar" src="{{course.avatar.url}}" alt="Loading...">
+
+            <div class="brand-content">
+                <div class="brand-content-info">
+                    <span class="brand-title">{{course.title}}</span>
+                    <span class="brand-description">{{course.get_short_description}}</span>
+                    <div id="course_rating_{{course.id}}" class="rating-container">
+                        <span>{{ course.get_average_rating }} <span class="secondary" style="color: var(--color-transparent)"> | {{ course.get_comment_count }} отзывов</span></span>
+                    </div>
+                    <script>
+                        ratingDiv = document.getElementById("course_rating_{{course.id}}")
+                        ratingDiv.innerHTML = generateStartHTML({{course.get_average_rating}}) + ratingDiv.innerHTML;
+                    </script>
+
+                    <span class="avtor-text">Владелец: {{course.author}}</span>
+                    <span class="avtor-text">Кол-во людей: <b>{{ course.get_lessons_count }}</b></span>
+                </div>
+
+{#                <span class="free-text">Бесплатно</span>#}
+            </div>
+
+        </a>
+        {% endfor %}
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+

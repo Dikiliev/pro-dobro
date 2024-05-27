@@ -1,0 +1,144 @@
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 0;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.video-player {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+button, .next-video{
+    color: white;
+    background-color: var(--color-hover-1);
+    border: none;
+    border-radius: var(--base-border-radius);
+    cursor: pointer;
+}
+
+.next-video{
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.container{
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+
+    gap: 1rem;
+}
+
+.right-container{
+    margin-left: 30px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.brand-header{
+    height: 50px;
+    width: 300px;
+
+    padding: 10px;
+}
+
+.brand-avatar{
+    height: 50px;
+    width: auto;
+
+    border: 3px solid var(--color-hover-2);
+    border-radius: 100px;
+}
+
+.header-info{
+    display: flex;
+    flex-direction: column;
+}
+.brand-title{
+    font-size: 28px;
+    font-weight: 600;
+
+    margin: 10px;
+}
+
+.brand-description{
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-1);
+    margin: 4px 20px;
+}
+
+.short-info{
+    margin-top: 20px;
+}
+
+.comments{
+    min-width: 400px;
+    min-height: 550px;
+
+    border: 1px dashed var(--color-transparent);
+    border-radius: var(--base-border-radius);
+
+    overflow: hidden;
+}
+
+.comment-write{
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 20px;
+    width: 400px;
+}
+
+.comment-write input{
+    width: 340px;
+    outline: none;
+    color: var(--color-1);
+    background-color: var(--background-color-2);
+    border-radius: calc(var(--base-border-radius) / 2);
+    border: 0px solid var(--color-1);
+
+    margin-right: 15px;
+    padding: 7px 7px;
+    font-size: 16px;
+}
+
+.comment-write button{
+    padding: 7px 12px;
+    font-size: 16px;
+}
+
+.comment{
+    margin: 10px auto auto;
+    width: 90%;
+
+    border: 1px dashed var(--color-transparent);
+    border-radius: var(--base-border-radius);
+    padding: 10px;
+}
+
+.comment-profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-size: 16px;
+}
+
+.comment-profile img{
+
+    border-radius: 100px;
+    width: 25px;
+    height: 25px;
+
+    margin-right: 10px;
+}

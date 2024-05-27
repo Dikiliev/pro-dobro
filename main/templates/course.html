@@ -1,0 +1,90 @@
+{% extends  "base.html" %}
+
+{% load static %}
+
+{% block head  %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/course.css' %}">
+
+    <script>
+        const course_id = {{ course.id }};
+    </script>
+
+    <script src="{% static 'js/course.js' %}">
+
+    </script>
+{% endblock %}
+
+{% block content  %}
+
+    {% csrf_token %}
+<br><br>
+<div class="container">
+    <div class="container">
+    <div class="strap team">
+       <h1>{{ course.title }}</h1>
+
+        <p>{{ course.description }}</p>
+    </div>
+  <div class="courses-container">
+    {% for teamUser in users %}
+
+    <div class="course-container">
+      <img class="review" src="{{ teamUser.get_avatar_url }}" alt="loading...">
+
+      <a href="/lesson/{{teamUser.id}}" class="course-content">
+
+        <div class="course-info">
+          <p class="lesson-title">{{teamUser.first_name}} {{teamUser.last_name}}</p>
+          <p class="lesson-phone">{{teamUser.phone}}</p>
+        </div>
+
+{#        <span class="show-url">Смотреть</span>#}
+
+      </a>
+    </div>
+
+    {% endfor %}
+  </div>
+    {% if is_joined %}
+    <button class="button" onclick="join()">Выйти</button>
+    {% else %}
+    <button class="button" onclick="join()">Присоединиться</button>
+    {% endif %}
+
+
+    <div class="strap">
+        <div class="comments-section">
+            <h2>Отзывы</h2>
+
+            <div class="comment-write">
+                <input id="comment-input" type="text" class="input">
+
+                <div id='starRating' class="star-rating">
+                    <input type="radio" id="5-stars" name="rating" value="5" />
+                    <label for="5-stars" class="star">&#9733;</label>
+                    <input type="radio" id="4-stars" name="rating" value="4" />
+                    <label for="4-stars" class="star">&#9733;</label>
+                    <input type="radio" id="3-stars" name="rating" value="3" />
+                    <label for="3-stars" class="star">&#9733;</label>
+                    <input type="radio" id="2-stars" name="rating" value="2" />
+                    <label for="2-stars" class="star">&#9733;</label>
+                    <input type="radio" id="1-star" name="rating" value="1" />
+                    <label for="1-star" class="star">&#9733;</label>
+                </div>
+
+                <button onclick="send_comment()" class="button"> Отправить </button>
+            </div>
+
+            <div id="comments" class="comments">
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,49 @@
+{% extends  "base.html" %}
+
+{% load static %}
+
+{% block head  %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/lesson.css' %}">
+{% endblock %}
+
+{% block content  %}
+
+
+<br><br>
+<div class="container">
+  <div class="lesson-container">
+
+    <h1 class="lesson-title">{{lesson.title}}</h1>
+
+{#    <div class="responsive-iframe-container">#}
+{#      <iframe#}
+{#              src="https://www.youtube.com/embed/{{lesson.get_video_id}}"#}
+{#              title="YouTube video player" frameborder="0"#}
+{#              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>#}
+{#      </iframe>#}
+{#    </div>#}
+
+      <img class="lesson-image" src="{{ lesson.get_image_url }}" alt="loading...">
+
+    <span class="lesson-description">{{lesson.description}}</span>
+
+    <div class="buttons">
+
+        {% if previous_lesson_id %}
+            <a href="/lesson/{{ previous_lesson_id }}" class="button">Предыдущее</a>
+        {% endif %}
+
+      <a href="/catalog" class="button">В каталог</a>
+
+        {% if next_lesson_id %}
+            <a href="/lesson/{{ next_lesson_id }}" class="button">Следующее</a>
+        {% endif %}
+    </div>
+  </div>
+
+
+</div>
+
+
+{% endblock %}
+

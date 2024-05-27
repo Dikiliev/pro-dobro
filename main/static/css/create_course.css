@@ -1,0 +1,18 @@
+form{
+    width: 100%;
+    max-width: 1024px;
+}
+
+textarea{
+    height: 200px;
+}
+
+.button{
+
+}
+
+.buttons{
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+}

@@ -1,0 +1,38 @@
+{% extends  "base.html" %}
+
+{% load static %}
+
+{% block head  %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/thanks.css' %}">
+
+<script>
+    const current_page = 4;
+</script>
+{% endblock %}
+
+{% block content  %}
+
+<br><br>
+<div class="container">
+    <div class="strap">
+
+        <div class="container w100" style="padding: 30px 0">
+            <div class="icon-strap">
+                <img class="big-icon" src="{% static 'images/check_mark_icon.svg' %}">
+            </div>
+
+            <h1>Ваш проект отправлен!</h1>
+            <p>Как только его примут модераторы, ваш проект появится в каталоге</p>
+            <a href='/create-course' class="button">Создать еще</a>
+            <a href='/catalog' class="button">Перейти в Каталог</a>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>
+
+{% endblock %}
+

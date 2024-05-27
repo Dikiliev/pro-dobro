@@ -1,0 +1,18 @@
+.icon-strap{
+    width: 120px;
+    background-color: var(--color-hover-1);
+    border-radius: 100px;
+    padding: 20px;
+}
+
+.big-icon{
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+    text-align: center;
+}
+p{
+    font-size: 1.2rem;
+}

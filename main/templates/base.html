@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/base_style.css' %}">
+    <script type="text/javascript" src="{% static 'js/base_script.js' %}"></script>
+
+    {% block head  %}
+
+    {% endblock %}
+
+</head>
+<body>
+
+<div class="head">
+    <div class="head-content horizontal-container">
+        <a class="logo" href="/catalog">
+            <span  class="text-logo-part-1"></span><span class="text-logo-part-2">ProDobro</span>
+        </a>
+        <nav class="nav-menu horizontal-container">
+            <a href="/catalog" class="nav-item">Сообщества</a>
+{#            <a href="/about-us" class="nav-item">О нас</a>#}
+
+            {% if user.is_authenticated %}
+            <a href="/create-course" class="nav-item">Создать команду</a>
+            <a href="/logout" class="nav-item profile-text">{{ user.username }}</a>
+
+            {% else %}
+
+                <a href="/login" class="nav-item">Войти</a>
+                <a href="/register" class="nav-item">Зарегистрироваться</a>
+
+            {% endif %}
+        </nav>
+    </div>
+</div>
+
+{% block content  %}
+
+{% endblock %}
+
+</body>
+</html>

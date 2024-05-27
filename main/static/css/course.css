@@ -1,0 +1,251 @@
+.courses-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
+    width: 90%;
+    max-width: var(--max-width);
+
+    /*padding: 30px;*/
+    margin: 10px auto;
+
+    /*background-color: var(--background-color-1);
+    box-shadow: 0 1px var(--shadow-blur) var(--shadow);*/
+
+    border-radius: var(--base-border-radius);
+}
+
+a{
+    text-decoration: none;
+}
+
+.course-container{
+    display: flex;
+    flex-direction: column;
+
+    width: auto;
+    max-width: 200px;
+    height: auto;
+
+    padding: 10px;
+
+    min-height: 200px;
+    max-height: 100%;
+
+    border-radius: var(--base-border-radius);
+
+    background-color: var(--background-color-1);
+    box-shadow: 0 1px var(--shadow-blur) var(--shadow);
+}
+
+.course-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+}
+
+.course-info{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.review{
+    border-radius: var(--base-border-radius);
+    margin-bottom: 20px;
+
+    height: 500%;
+    object-fit: cover;
+}
+
+.lesson-title{
+    font-weight: 700;
+    font-size: 21px;
+
+    text-align: center;
+}
+
+.lesson-phone{
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.show-url{
+    color: var(--color-2);
+    text-align: right;
+    text-decoration: underline;
+    margin: 5px 20px;
+}
+
+.show-url:hover{
+    color: var(--color-hover-1);
+}
+
+.strap{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color-1);
+
+
+    width: 90%;
+    min-width: min(1240px, 90vw);
+    max-width: var(--max-width);
+
+    border-radius: var(--base-border-radius);
+}
+
+.team{
+    padding: 1.5rem;
+    gap: 1rem;
+    padding-bottom: 2rem;
+
+    margin: 0 auto;
+}
+
+.team h1{
+    text-align: center;
+}
+
+.comments-section{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    gap: 1rem;
+}
+
+.comments{
+    min-width: 400px;
+    min-height: 550px;
+
+    background-color: var(--background-color-2);
+
+    /*border: 1px dashed var(--color-transparent);*/
+    border-radius: var(--base-border-radius);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem;
+    gap: 1rem;
+
+    overflow: hidden;
+}
+
+.comment-write{
+    display: grid;
+    grid-template-columns: 1fr auto 150px;
+    gap: 1rem;
+
+    width: 100%
+}
+
+.comment-write input{
+    width: 1fr;
+    outline: none;
+    color: var(--color-1);
+    background-color: var(--background-color-2);
+    border-radius: calc(var(--base-border-radius) / 2);
+    border: 0px solid var(--color-1);
+
+    padding: 7px 7px;
+    font-size: 16px;
+}
+
+.comment-write button{
+    padding: 7px 12px;
+    font-size: 16px;
+}
+
+.comment{
+    width: auto;
+
+    /*border: 1px dashed var(--color-transparent);*/
+    border-radius: var(--base-border-radius);
+    padding: 2rem;
+
+    background-color: var(--background-color-1);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.comment-profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-size: 16px;
+}
+
+.comment-profile img{
+
+    border-radius: 100px;
+    width: 25px;
+    height: 25px;
+
+    margin-right: 10px;
+}
+
+
+.star-rating {
+    direction: rtl;
+    display: inline-flex;
+    font-size: 2em;
+    justify-content: center;
+
+    padding: 0 1rem;
+
+    border: 1px solid transparent;
+
+    background-color: var(--background-color-2);
+    border-radius: var(--small-border-radius);
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    cursor: pointer;
+    color: var(--color-transparent);
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type="radio"]:checked ~ label {
+    color: #f5c518;
+}
+
+.input.error{
+    border: 1px solid transparent;
+}
+
+.star-rating.error, .input.error {
+    border-color: var(--error-color);
+}
+
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.button{
+    margin: 0 auto;
+    max-width: 440px;
+}

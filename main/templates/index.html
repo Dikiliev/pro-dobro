@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head  %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+
+{% block content  %}
+
+<main>
+    <div class="title">
+        <span class="text-logo-part-1">Django</span><span class="text-logo-part-2">Dev</span>
+    </div>
+
+    <div class="about-us" id="about-us">
+        <script>get_text("{% static 'textes/home_about_us.html' %}", "about-us")</script>
+    </div>
+</main>
+
+{% endblock %}
+
+

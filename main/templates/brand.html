@@ -1,0 +1,104 @@
+{% extends  "base.html" %}
+
+{% load static %}
+
+
+{% block head  %}
+
+<link type="text/css" rel="stylesheet" href="{% static 'css/brand.css' %}">
+<script type="text/javascript" src="{% static 'js/brand.js' %}"></script>
+
+{% endblock %}
+
+{% block content  %}
+
+<div class="enter-5"></div>
+<div class="container">
+  {% csrf_token %}
+  <div class="brand-container">
+    <div class="flex brand-header">
+      <img class="brand-avatar" src="{{ brand.avatar.url }}">
+      <div class="header-info">
+        <span class="brand-title">{{ brand.title }}</span>
+        <span class="brand-description">Наш адрес: {{ brand.address }}</span>
+        <span class="brand-description">Номер для связи: {{ brand.phone_number }}</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="flex products">
+        {% for product in brand.get_product %}
+
+        <div class="product">
+          <img src="{{ product.image.url }}">
+          <span class="product-title">{{ product.title | truncatechars:13}}</span>
+          <span class="product-composition">{{ product.composition | truncatechars:20 }}</span>
+
+
+          <div class="count-container">
+            <div class="count-buttons">
+              <button onclick="set_product({{product.id}}, -1)" class="count-button">-</button>
+              <span id="{{product.id}}">0</span>
+              <button onclick="set_product({{product.id}}, 1)" class="count-button">+</button>
+            </div>
+
+            <span class="product-price">{{ product.get_price }}<span class="rub">₽</span></span>
+          </div>
+        </div>
+
+        {% endfor %}
+
+      </div>
+
+      <div class="check">
+        <h2>Заказ</h2>
+
+        <span>Номер: #21231</span>
+
+        <br>
+        <div id="check-products" class="check-products">
+
+          <br><div class="check-tr"><span class="check-td title">ИТОГО: 0₽</span></div>
+        </div>
+
+        <div class="toggle-container">
+          <input checked type="radio" id="takeout" name="delivery-option" value="takeout">
+          <label for="takeout">На&nbsp;вынос</label>
+
+          <input type="radio" id="dine-in" name="delivery-option" value="dine-in">
+          <label for="dine-in">В&nbsp;заведении</label>
+
+          <input type="radio" id="delivery" name="delivery-option" value="delivery">
+          <label for="delivery">С&nbsp;доставкой</label>
+        </div>
+
+        <button id="order-button" onclick="order({{user.id}}, {{brand.id}})" class="gradient-button inactive"><a>Заказать</a></button>
+
+      </div>
+
+    </div>
+
+
+    <br>
+  </div>
+
+</div>
+
+<script>
+  let js_product;
+  {% for product in brand.get_product %}
+    js_product = {
+      'title': "{{product.title}}",
+      'price': {{product.price}},
+      'count': 0
+    }
+    products[{{product.id}}] = js_product;
+  {% endfor %}
+
+  console.log(products);
+</script>
+
+
+{% endblock %}
+

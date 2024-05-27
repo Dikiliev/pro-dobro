@@ -1,0 +1,32 @@
+{% extends  "base.html" %}
+
+{% block content  %}
+
+<div class="enter-5"></div>
+<div class="container">
+    <h1>Вход</h1>
+
+    <form class="" action="" method="post">
+        {% csrf_token %}
+
+        <div class="input-group">
+            <label for="username">Имя пользователя:</label>
+            <input type="text" id="username" name="username" value="{{ username }}" required>
+        </div>
+
+        <div class="input-group">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <p class="error">{{ error }}</p>
+        <br>
+        <button class="gradient-button" type="submit"><a>Войти</a></button>
+        <a href="/register">Нет аккаунта? Зарегистрироваться</a>
+
+    </form>
+</div>
+
+
+{% endblock %}
+
